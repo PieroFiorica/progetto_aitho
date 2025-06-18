@@ -1,0 +1,3 @@
+TODO:
+    -add a way to do multiple operations in one go (eg. "aggiungi 2 pizze e rimuovi 2 birre")
+    -add docker to build everything 

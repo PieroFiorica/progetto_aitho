@@ -2,39 +2,56 @@ from langchain.agents import tool
 from memory import load_shopping_list, save_shopping_list
 
 @tool(return_direct=True)
-def add_product(item: str, quantity: int = 1) -> str:
-    """Aggiunge una quantità specifica di un prodotto alla lista della spesa."""
-    item = item.lower()
+def add_product(items: dict) -> str:
+    """
+    Aggiunge dei prodotti alla lista della spesa.
+    Argomento: items (dict) con nome prodotto come chiave e quantità come valore.
+    Esempio: {"mele": 3, "latte": 1}
+    """
     shopping_list = load_shopping_list()
-    if item in shopping_list:
-        shopping_list[item] += quantity
-    else:
-        shopping_list[item] = quantity
+    for item, qty in items.items():
+        item = item.lower()
+        if item in shopping_list:
+            shopping_list[item] += qty
+        else:
+            shopping_list[item] = qty
     save_shopping_list(shopping_list)
-    return f" Aggiunti {quantity} x '{item}' alla lista."
+
+    summary = "\n".join([f" {qty} x {item}" for item, qty in items.items()])
+    return f"Prodotti aggiunti:\n{summary}"
 
 @tool(return_direct=True)
-def remove_product(item: str, quantity: int = 1) -> str:
-    """Rimuove una quantità specifica di un prodotto dalla lista della spesa."""
-    item = item.lower()
+def remove_product(items: dict) -> str:
+    """
+    Rimuove dei prodotti dalla lista della spesa.
+    Argomento: items (dict) con nome prodotto come chiave e quantità da rimuovere.
+    Esempio: {"mele": 2, "latte": 1}
+    """
     shopping_list = load_shopping_list()
-    if item not in shopping_list:
-        return f" Il prodotto '{item}' non è nella lista."
-    shopping_list[item] -= quantity
-    if shopping_list[item] <= 0:
-        del shopping_list[item]
-        message = f"🗑️ '{item}' rimosso completamente dalla lista."
-    else:
-        message = f" Rimosso {quantity} x '{item}'. Quantità rimanente: {shopping_list[item]}"
+    messages = []
+    print(items.items())
+    for item, qty in items.items():
+        item = item.lower()
+        if item not in shopping_list:
+            messages.append(f" '{item}' non è nella lista.")
+            continue
+
+        shopping_list[item] -= qty
+        if shopping_list[item] <= 0:
+            del shopping_list[item]
+            messages.append(f" '{item}' rimosso completamente.")
+        else:
+            messages.append(f" {qty} x '{item}' rimosso. Rimane: {shopping_list[item]}")
+
     save_shopping_list(shopping_list)
-    return message
+    return "\n".join(messages)
 
 @tool(return_direct=True)
 def show_list() -> str:
-    """Mostra la lista corrente della spesa."""
+    """Mostra la lista corrente della spesa con quantità."""
     shopping_list = load_shopping_list()
     if not shopping_list:
-        return "La lista della spesa è vuota."
+        return " La lista della spesa è vuota."
     items = "\n".join([f"- {item}: {qty}" for item, qty in shopping_list.items()])
     return f" Lista della Spesa:\n{items}"
 
@@ -45,3 +62,12 @@ def clear_list() -> str:
     return "🧹 Lista della spesa svuotata."
 
 tools = [add_product, remove_product, show_list, clear_list]
+
+# test_value={"pizze" : 2}
+# test_value = {"items" : {"pizze" : 2}}
+# print(type(test_value),"\n")
+# print(add_product(test_value))
+# test_value = {"pizze" : 2}
+# print(type(test_value),"\n")
+# print(add_product(test_value))
+
