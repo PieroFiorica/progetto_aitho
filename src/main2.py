@@ -18,5 +18,5 @@ with col1:
 with col2:
     if st.button("📋 Visualizza Lista"):
         with st.spinner("Sto recuperando la lista..."):
-            result = graph.invoke({"messages": [HumanMessage(content="mostra la lista")]})
+            result = graph.invoke({"messages": [HumanMessage(content="mostra la lista")]},{"recursion_limit": 10})
             st.info(result["messages"][-1].content)

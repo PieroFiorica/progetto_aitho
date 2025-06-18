@@ -22,18 +22,19 @@ Il tuo compito è interpretare il comando scritto dall'utente e decidere quale f
 1. `add_product(item: str)` -> Quando l'utente vuole aggiungere un prodotto alla lista.
 2. `remove_product(item: str)` -> Quando l'utente vuole rimuovere un prodotto dalla lista.
 3. `show_list()` -> Quando l'utente vuole vedere la lista corrente.
+4. `clear_list()` → Quando l'utente vuole eliminare completamente la lista (es: "svuota la lista", "cancella tutto", "ripulisci", "elimina ogni cosa").
+
 
 Esempi:
 
 - "Aggiungi il pane e il latte" -> chiama `add_product` per ciascun prodotto.
 - "Togli le uova" -> chiama `remove_product` con "uova".
 - "Mostra lista" -> chiama `show_list`.
-
-Rispondi solo con "operazione completata".
+ 
+Chiama una sola funzione per volta.
 
 Gestisci comandi scritti in linguaggio naturale, anche vaghi o informali, e risolvi correttamente l'intento dell'utente.
 """
-
 
 llm = ChatGroq(
         model=groq_model,
