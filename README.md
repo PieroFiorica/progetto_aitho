@@ -33,7 +33,8 @@ progetto_aitho/
 │   ├── graph.py        	# LangGraph graph setup
 │   ├── memory.py       	# JSON storage logic
 │   ├── tools.py        	# Tool definitions
-│   ├── shopping_list.json  # Persistent memory 
+│   ├── shopping_list.json  # Persistent memory (created at runtime)
+│   ├── .env  				# Model details here
 ├── requirements.txt    	# Dependencies
 ├── Dockerfile          	# Container setup
 └── README.md           	# Project instruction
@@ -61,7 +62,7 @@ pip install -r requirements.txt
 3. **Set up your .env file**
 
 ```bash
- nano /src/.env_template
+ nano /src/.env
 ```
 
 4. **Start the app**
@@ -77,13 +78,19 @@ Then open your browser at:
 
 ### 🐳 Option 2: Run with Docker
 
-1. **Build the image**
+1. **Set up your .env file**
+
+```bash
+ nano /src/.env
+```
+
+2. **Build the image**
 
 ```bash
 docker build -t progetto_aitho .
 ```
 
-2. **Run the container**
+3. **Run the container**
 
 ```bash
 docker run -p 8051:8051 progetto_aitho 
