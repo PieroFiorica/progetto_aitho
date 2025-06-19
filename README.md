@@ -22,7 +22,6 @@ The agent interprets natural language commands to **add**, **remove**, and **vie
 
 ## 📁 Project Structure
 
-```
 
 progetto_aitho/
 ├── src/
@@ -67,7 +66,7 @@ pip install -r requirements.txt
 streamlit run /src/main.py --server.port 8501
 ```
 
-Then open your browser at:
+Then open your browser at: 
 **[http://localhost:8501](http://localhost:8501)**
 
 ---
@@ -86,7 +85,7 @@ docker build -t progetto_aitho .
 docker run -p 8051:8051 progetto_aitho 
 ```
 
-Then visit:
+Then open your browser at: 
 **[http://localhost:8051](http://localhost:8051)**
 
 ---
