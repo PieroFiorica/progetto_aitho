@@ -1,4 +1,3 @@
-### ✅ `README.md`
 
 ```markdown
 # 🛒 Shopping List AI Agent
