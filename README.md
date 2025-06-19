@@ -3,8 +3,11 @@
 ```markdown
 # 🛒 Shopping List AI Agent
 
-An AI-powered shopping list manager built with **LangGraph**, **LangChain**, and **Streamlit**.  
-The agent interprets natural language commands to **add**, **remove**, and **view** items with quantities in a persistent `.json` file.
+An AI-powered shopping list manager built with:
+**LangGraph**, **LangChain**, and **Streamlit**. 
+ 
+The agent interprets natural language commands to:
+**add**, **remove**, and **view** items with quantities in a persistent `.json` file.
 
 ---
 
@@ -25,14 +28,15 @@ The agent interprets natural language commands to **add**, **remove**, and **vie
 
 progetto_aitho/
 ├── src/
-│   ├── main.py         # Streamlit UI
-│   ├── agent.py        # LLM & agent setup
-│   ├── graph.py        # LangGraph graph setup
-│   ├── memory.py       # JSON storage logic
-│   ├── tools.py        # Tool definitions
-├── requirements.txt    # Dependencies
-├── Dockerfile          # Container setup
-└── README.md           # Project instruction
+│   ├── main.py         	# Streamlit UI
+│   ├── agent.py        	# LLM & agent setup
+│   ├── graph.py        	# LangGraph graph setup
+│   ├── memory.py       	# JSON storage logic
+│   ├── tools.py        	# Tool definitions
+│   ├── shopping_list.json  # Persistent memory 
+├── requirements.txt    	# Dependencies
+├── Dockerfile          	# Container setup
+└── README.md           	# Project instruction
 
 ```
 
