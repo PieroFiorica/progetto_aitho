@@ -1,7 +1,7 @@
 from langchain.agents import tool
 from memory import load_shopping_list, save_shopping_list
 
-@tool(return_direct=True)
+@tool
 def add_product(items: dict) -> str:
     """
     Aggiunge dei prodotti alla lista della spesa.
@@ -20,7 +20,7 @@ def add_product(items: dict) -> str:
     summary = "\n".join([f" {qty} x {item}" for item, qty in items.items()])
     return f"Prodotti aggiunti:\n{summary}"
 
-@tool(return_direct=True)
+@tool
 def remove_product(items: dict) -> str:
     """
     Rimuove dei prodotti dalla lista della spesa.
@@ -46,7 +46,7 @@ def remove_product(items: dict) -> str:
     save_shopping_list(shopping_list)
     return "\n".join(messages)
 
-@tool(return_direct=True)
+@tool
 def show_list() -> str:
     """Mostra la lista corrente della spesa con quantità."""
     shopping_list = load_shopping_list()

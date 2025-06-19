@@ -5,7 +5,7 @@ from graph import graph
 st.set_page_config(page_title="Lista della Spesa AI", page_icon="🛍️")
 st.title("🛒 Lista della Spesa con Agente AI")
 
-user_input = st.text_input("Cosa vuoi fare?", placeholder="Es: aggiungi pasta, rimuovi latte")
+user_input = st.text_input("Cosa vuoi fare?", placeholder="Es: aggiungi pasta, rimuovi latte, svuota lista")
 
 col1, col2 = st.columns([3, 1])
 
