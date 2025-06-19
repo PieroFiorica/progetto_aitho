@@ -29,7 +29,6 @@ def remove_product(items: dict) -> str:
     """
     shopping_list = load_shopping_list()
     messages = []
-    print(items.items())
     for item, qty in items.items():
         item = item.lower()
         if item not in shopping_list:
