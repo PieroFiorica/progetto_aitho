@@ -38,7 +38,7 @@ progetto_aitho/
 ├── Dockerfile          	# Container setup
 └── README.md           	# Project instruction
 
-```
+
 
 ---
 
@@ -120,3 +120,4 @@ Or click the **📋 Visualizza Lista** button.
 * The app supports both singular and bulk item operations
 
 ---
+```
