@@ -3,9 +3,8 @@ from langchain_groq import ChatGroq
 from langchain.chat_models.base import init_chat_model
 from tools import tools
 
-from langchain.globals import set_debug
-#########################################################
-set_debug(True)
+#from langchain.globals import set_debug
+#set_debug(True)
 
 import os
 from dotenv import load_dotenv
